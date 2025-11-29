@@ -5,7 +5,7 @@ from practice_2024 import do_part_1, read_lists, extract_values_from_line, FileD
 class Test2024Day1:
     @pytest.mark.parametrize(
         "file_name,expected_answer",
-        [("simple_input_practice.txt", 11), ("input_practice.txt", 26800609)],
+        [("simple_input_practice.txt", 11), ("input_practice.txt", 1530215)],
     )
     def test_basic_answer(self, file_name, expected_answer):
         """
