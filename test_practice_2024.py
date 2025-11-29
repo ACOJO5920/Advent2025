@@ -3,11 +3,15 @@ from practice_2024 import do_part_1, read_lists, extract_values_from_line, FileD
 
 
 class Test2024Day1:
-    def test_basic_answer(self):
+    @pytest.mark.parametrize(
+        "file_name,expected_answer",
+        [("simple_input_practice.txt", 11), ("input_practice.txt", 26800609)],
+    )
+    def test_basic_answer(self, file_name, expected_answer):
         """
         Tests that running the part 1 function gets me the right answer
         """
-        assert do_part_1("input_practice.txt") == 26800609
+        assert do_part_1(file_name) == expected_answer
 
     def test_read_file(self):
         """
