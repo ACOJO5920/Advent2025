@@ -1,6 +1,8 @@
 from dataclasses import dataclass
 import string
 
+DEFAULT_FILENAME = "input_practice.txt"
+
 
 @dataclass
 class FileData:
@@ -8,21 +10,18 @@ class FileData:
     right_list: list[int]
 
     @property
-    def similarity_score(self) -> int:
+    def total_distance(self) -> int:
         """
-        Return the similarity score of the file
+        Return the total distance of the two lists in this file
 
-        :return: the similarity score
+        :return: the total distance
         """
         sorted_left_list = sorted(self.left_list)
         sorted_right_list = sorted(self.right_list)
-        total_score = 0
+        total_distance = 0
         for left_val, right_val in zip(sorted_left_list, sorted_right_list):
-            total_score += abs(left_val - right_val)
-        return total_score
-
-
-DEFAULT_FILENAME = "input_practice.txt"
+            total_distance += abs(left_val - right_val)
+        return total_distance
 
 
 def read_lists(file_name: str = DEFAULT_FILENAME) -> FileData:
@@ -73,8 +72,8 @@ def do_part_1(input_file_name: str = DEFAULT_FILENAME) -> int:
     Do the calculations for part 1 of the puzzle
 
     :param input_file_name: the input file to complete
-    :return: the similarity score of the input file
+    :return: the total distance of the input file
     """
     file_data = read_lists(input_file_name)
 
-    return file_data.similarity_score
+    return file_data.total_distance

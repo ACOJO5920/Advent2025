@@ -34,16 +34,16 @@ class TestFileData:
     """
 
     @pytest.mark.parametrize(
-        "list1,list2,expected_score",
+        "list1,list2,expected_distance",
         [
             ([1, 2, 3], [3, 2, 1], 0),
             ([1, 2, 3], [1, 2, 3], 0),
             ([3, 4, 2, 1, 3, 3], [4, 3, 5, 3, 9, 3], 11),
         ],
     )
-    def test_similarity_score(self, list1, list2, expected_score):
+    def test_similarity_score(self, list1, list2, expected_distance):
         """
-        Tests that the similarity score function generates the correct value
+        Tests that the total_distance function generates the correct value
         """
         file_data = FileData(list1, list2)
-        assert file_data.similarity_score == expected_score
+        assert file_data.total_distance == expected_distance
