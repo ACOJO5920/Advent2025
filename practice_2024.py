@@ -78,7 +78,7 @@ class Day1:
         right_list: list[int] = []
 
         with open(file_name) as f:
-            for line in f.readlines():
+            for line in f:
                 line_values = Day1.extract_values_from_line(line)
                 left_list.append(line_values[0])
                 right_list.append(line_values[1])
