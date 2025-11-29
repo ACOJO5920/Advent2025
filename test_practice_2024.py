@@ -2,7 +2,7 @@ import pytest
 from practice_2024 import (
     do_part_1,
     do_part_2,
-    read_lists,
+    generate_file_data,
     extract_values_from_line,
     FileData,
 )
@@ -33,7 +33,7 @@ class Test2024Day1:
         """
         Tests that reading the data from a test file gives the correct FileData object
         """
-        file_data = read_lists("simple_input_practice.txt")
+        file_data = generate_file_data("simple_input_practice.txt")
         assert file_data.left_list == [3, 4, 2, 1, 3, 3]
         assert file_data.right_list == [4, 3, 5, 3, 9, 3]
 

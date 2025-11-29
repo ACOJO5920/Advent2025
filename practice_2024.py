@@ -37,7 +37,7 @@ class FileData:
         return total_score
 
 
-def read_lists(file_name: str = DEFAULT_FILENAME) -> FileData:
+def generate_file_data(file_name: str = DEFAULT_FILENAME) -> FileData:
     """
     Read a given list file and return a FileData object
 
@@ -87,7 +87,7 @@ def do_part_1(input_file_name: str = DEFAULT_FILENAME) -> int:
     :param input_file_name: the input file to complete
     :return: the total distance of the input file
     """
-    file_data = read_lists(input_file_name)
+    file_data = generate_file_data(input_file_name)
 
     return file_data.total_distance
 
@@ -99,6 +99,6 @@ def do_part_2(input_file_name: str = DEFAULT_FILENAME) -> int:
     :param input_file_name: the input file to complete
     :return: the similarity score of the input file
     """
-    file_data = read_lists(input_file_name)
+    file_data = generate_file_data(input_file_name)
 
     return file_data.similarity_score
