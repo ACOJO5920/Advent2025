@@ -23,6 +23,19 @@ class FileData:
             total_distance += abs(left_val - right_val)
         return total_distance
 
+    @property
+    def similarity_score(self) -> int:
+        """
+        Return the similarity score of the two lists in this file
+
+        :return: the similarity score
+        """
+        total_score = 0
+        for left_val in self.left_list:
+            total_score += left_val * self.right_list.count(left_val)
+
+        return total_score
+
 
 def read_lists(file_name: str = DEFAULT_FILENAME) -> FileData:
     """
@@ -77,3 +90,15 @@ def do_part_1(input_file_name: str = DEFAULT_FILENAME) -> int:
     file_data = read_lists(input_file_name)
 
     return file_data.total_distance
+
+
+def do_part_2(input_file_name: str = DEFAULT_FILENAME) -> int:
+    """
+    Do the calculations for part 2 of the puzzle
+
+    :param input_file_name: the input file to complete
+    :return: the similarity score of the input file
+    """
+    file_data = read_lists(input_file_name)
+
+    return file_data.similarity_score
