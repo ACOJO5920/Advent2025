@@ -1,9 +1,6 @@
 import pytest
 from practice_2024 import (
-    do_part_1,
-    do_part_2,
-    generate_file_data,
-    extract_values_from_line,
+    Day1,
     FileData,
 )
 
@@ -17,7 +14,7 @@ class Test2024Day1:
         """
         Tests that running the part 1 function gets me the right answer
         """
-        assert do_part_1(file_name) == expected_answer
+        assert Day1.do_part_1(file_name) == expected_answer
 
     @pytest.mark.parametrize(
         "file_name,expected_answer",
@@ -27,13 +24,13 @@ class Test2024Day1:
         """
         Tests that running the part 2 function gets me the right answer
         """
-        assert do_part_2(file_name) == expected_answer
+        assert Day1.do_part_2(file_name) == expected_answer
 
     def test_read_file(self):
         """
         Tests that reading the data from a test file gives the correct FileData object
         """
-        file_data = generate_file_data("simple_input_practice.txt")
+        file_data = Day1.generate_file_data("simple_input_practice.txt")
         assert file_data.left_list == [3, 4, 2, 1, 3, 3]
         assert file_data.right_list == [4, 3, 5, 3, 9, 3]
 
@@ -41,7 +38,7 @@ class Test2024Day1:
         """
         Tests that the correct values are extracted from a given line
         """
-        assert extract_values_from_line("80784   47731") == (80784, 47731)
+        assert Day1.extract_values_from_line("80784   47731") == (80784, 47731)
 
 
 class TestFileData:
