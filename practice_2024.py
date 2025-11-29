@@ -67,7 +67,7 @@ class Day1:
         return file_data.similarity_score
 
     @staticmethod
-    def generate_file_data(file_name: str = DEFAULT_FILENAME) -> FileData:
+    def generate_file_data(file_name: str) -> FileData:
         """
         Read a given list file and return a FileData object
 
