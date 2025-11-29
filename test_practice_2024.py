@@ -29,7 +29,14 @@ class TestFileData:
     Tests the FileData class
     """
 
-    @pytest.mark.parametrize("list1,list2,expected_score", [([1, 2, 3], [3, 2, 1], 0)])
+    @pytest.mark.parametrize(
+        "list1,list2,expected_score",
+        [
+            ([1, 2, 3], [3, 2, 1], 0),
+            ([1, 2, 3], [1, 2, 3], 0),
+            ([3, 4, 2, 1, 3, 3], [4, 3, 5, 3, 9, 3], 11),
+        ],
+    )
     def test_similarity_score(self, list1, list2, expected_score):
         """
         Tests that the similarity score function generates the correct value

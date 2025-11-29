@@ -8,8 +8,18 @@ class FileData:
     right_list: list[int]
 
     @property
-    def similarity_score(self):
-        return 1
+    def similarity_score(self) -> int:
+        """
+        Return the similarity score of the file
+
+        :return: the similarity score
+        """
+        sorted_left_list = sorted(self.left_list)
+        sorted_right_list = sorted(self.right_list)
+        total_score = 0
+        for left_val, right_val in zip(sorted_left_list, sorted_right_list):
+            total_score += abs(left_val - right_val)
+        return total_score
 
 
 DEFAULT_FILENAME = "input_practice.txt"
